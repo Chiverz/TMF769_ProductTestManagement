@@ -1,0 +1,141 @@
+{
+  "info": {
+    "name": "TMF769 Product Test Management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Basic requests for the TMF769 Product Test Management API"
+  },
+  "variable": [
+    {
+      "key": "apiRoot",
+      "value": "https://serverRoot"
+    }
+  ],
+  "item": [
+    {
+      "name": "ProductTest",
+      "item": [
+        {
+          "name": "List Product Tests",
+          "request": {
+            "method": "GET",
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTest"
+          }
+        },
+        {
+          "name": "Retrieve Product Test",
+          "request": {
+            "method": "GET",
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTest/:id"
+          }
+        },
+        {
+          "name": "Create Product Test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"FTTH line-rate check\",\n  \"mode\": \"onDemand\",\n  \"testSpecification\": { \"id\": \"ba01e0f0-8e6a-452d-9535-6b72ea67e712\" },\n  \"relatedProduct\": { \"id\": \"12345\" },\n  \"@type\": \"ProductTest\"\n}"
+            },
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTest"
+          }
+        },
+        {
+          "name": "Patch Product Test",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {"key": "Content-Type", "value": "application/merge-patch+json"}
+            ],
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTest/:id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProductTestSpecification",
+      "item": [
+        {
+          "name": "List Product Test Specifications",
+          "request": {
+            "method": "GET",
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTestSpecification"
+          }
+        },
+        {
+          "name": "Retrieve Product Test Specification",
+          "request": {
+            "method": "GET",
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTestSpecification/:id"
+          }
+        },
+        {
+          "name": "Create Product Test Specification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Diagnostic Product FTTH\",\n  \"version\": \"1.0\",\n  \"relatedProductSpecification\": [ { \"id\": \"89af318b-8793-4915-b6a3-2ffe0959998e\" } ],\n  \"@type\": \"ProductTestSpecification\"\n}"
+            },
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTestSpecification"
+          }
+        },
+        {
+          "name": "Patch Product Test Specification",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {"key": "Content-Type", "value": "application/merge-patch+json"}
+            ],
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTestSpecification/:id"
+          }
+        },
+        {
+          "name": "Delete Product Test Specification",
+          "request": {
+            "method": "DELETE",
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/productTestSpecification/:id"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Event Hub",
+      "item": [
+        {
+          "name": "Create Hub",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"callback\": \"https://client.example.com/listener\"\n}"
+            },
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/hub"
+          }
+        },
+        {
+          "name": "Retrieve Hub",
+          "request": {
+            "method": "GET",
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/hub/:id"
+          }
+        },
+        {
+          "name": "Delete Hub",
+          "request": {
+            "method": "DELETE",
+            "url": "{{apiRoot}}/tmf-api/productTestManagement/v5/hub/:id"
+          }
+        }
+      ]
+    }
+  ]
+}
